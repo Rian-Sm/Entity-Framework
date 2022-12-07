@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Alura.Loja.Testes.ConsoleApp.Models;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 
 namespace Alura.Loja.Testes.ConsoleApp
 {
-    internal class ProdutoDAO : IDisposable
+    internal class ProdutoDAO : IDisposable, IProdutoDAO
     {
         private SqlConnection conexao;
 
@@ -19,7 +20,7 @@ namespace Alura.Loja.Testes.ConsoleApp
             this.conexao.Close();
         }
 
-        internal void Adicionar(Produto p)
+        public void Adicionar(Produto p)
         {
             try
             {
@@ -42,7 +43,7 @@ namespace Alura.Loja.Testes.ConsoleApp
             }
         }
 
-        internal void Atualizar(Produto p)
+        public void Atualizar(Produto p)
         {
             try
             {
@@ -66,7 +67,7 @@ namespace Alura.Loja.Testes.ConsoleApp
             }
         }
 
-        internal void Remover(Produto p)
+        public void Deletar(Produto p)
         {
             try
             {
@@ -84,7 +85,7 @@ namespace Alura.Loja.Testes.ConsoleApp
             }
         }
 
-        internal IList<Produto> Produtos()
+        public IList<Produto> Buscar()
         {
             var lista = new List<Produto>();
 

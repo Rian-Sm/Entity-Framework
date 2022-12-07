@@ -142,7 +142,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Produto.cs" />
+    <Compile Include="Context\LojaContext.cs" />
+    <Compile Include="Models\Produto.cs" />
     <Compile Include="ProdutoDAO.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
