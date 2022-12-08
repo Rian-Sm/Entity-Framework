@@ -1,9 +1,8 @@
-﻿using Alura.Loja.Testes.ConsoleApp.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 
-namespace Alura.Loja.Testes.ConsoleApp
+namespace Alura.Loja.Testes.ConsoleApp.DAO
 {
     internal class ProdutoDAO : IDisposable, IProdutoDAO
     {

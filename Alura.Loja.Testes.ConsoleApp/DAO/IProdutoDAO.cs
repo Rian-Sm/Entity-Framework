@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Alura.Loja.Testes.ConsoleApp.Models
+namespace Alura.Loja.Testes.ConsoleApp.DAO
 {
     interface IProdutoDAO
     {

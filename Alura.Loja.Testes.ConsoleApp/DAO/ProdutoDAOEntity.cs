@@ -1,5 +1,4 @@
 ﻿using Alura.Loja.Testes.ConsoleApp.Context;
-using Alura.Loja.Testes.ConsoleApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,7 +30,9 @@ namespace Alura.Loja.Testes.ConsoleApp.DAO
 
         public IList<Produto> Buscar()
         {
-            throw new NotImplementedException();
+            IList<Produto> produtos = context.Produtos.ToList();
+
+            return produtos;
         }
 
         public void Deletar(Produto p)
