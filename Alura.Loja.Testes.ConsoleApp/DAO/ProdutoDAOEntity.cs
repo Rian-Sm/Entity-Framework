@@ -7,13 +7,23 @@ using System.Threading.Tasks;
 
 namespace Alura.Loja.Testes.ConsoleApp.DAO
 {
-    class ProdutoDAOEntity : IProdutoDAO, IDisposable
+    class ProdutoDAOEntity : IDisposable, IProdutoDAO 
     {
         private LojaContext context;
+
+        public ProdutoDAOEntity() {
+            context = new LojaContext();
+        }
+
+        public void Dispose()
+        {
+        }
 
         public void Adicionar(Produto p)
         {
             context.Produtos.Add(p);
+            context.SaveChanges();
+
         }
 
         public void Atualizar(Produto p)
@@ -47,8 +57,6 @@ namespace Alura.Loja.Testes.ConsoleApp.DAO
                 context.SaveChanges();
         }
 
-        public void Dispose()
-        {
-        }
+     
     }
 }

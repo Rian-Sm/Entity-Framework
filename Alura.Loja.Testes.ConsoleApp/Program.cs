@@ -1,5 +1,7 @@
 ﻿using Alura.Loja.Testes.ConsoleApp.Context;
 using Alura.Loja.Testes.ConsoleApp.DAO;
+using Alura.Loja.Testes.ConsoleApp.Models;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,11 +14,21 @@ namespace Alura.Loja.Testes.ConsoleApp
     {
         static void Main(string[] args)
         {
-            //GravarUsandoAdoNet();
-            //SaveUseEF();
-            //GetProdutos();
-            //UpdateProduto(2, "produto teste", "categoria teste", 100.05);
-            //DeleteProduto(1);
+
+            Produto prod = new Produto();
+            Pedido pedido = new Pedido();
+
+            prod.Nome = "abobora";
+            prod.Categoria = "Vegetal";
+            prod.PrecoUnitario = 7.99;
+            prod.Unidade = "Kilos";
+
+            pedido.Produto = prod;
+
+            using (var entity = new ProdutoDAOEntity())
+            {
+                entity.Adicionar(prod);
+            }
 
             Console.ReadLine();
 
