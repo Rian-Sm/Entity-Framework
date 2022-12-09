@@ -12,12 +12,19 @@ namespace Alura.Loja.Testes.ConsoleApp.Context
     {
         public DbSet<Produto> Produtos { get; set; }
         public DbSet<Pedido> Pedidos { get; set; }
+        public DbSet<Promocao> Promocoes { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<PromocaoProduto>().HasKey(pp => new { pp.PromocaoId, pp.ProdutoId });
+            base.OnModelCreating(modelBuilder);
+        }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
 
             //base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlServer("Data Source=RIAN-MACEDO\\SQLEXPRESS;Initial Catalog=LojaDB;Integrated Security=True");
+            optionsBuilder.UseSqlServer("Data Source=EGESTAO-EST26\\SQLEXPRESS;Initial Catalog=LojaDB;Integrated Security=True;Pooling=False");
         }
     }
 }

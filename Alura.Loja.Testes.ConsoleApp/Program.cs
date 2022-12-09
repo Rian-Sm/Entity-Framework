@@ -14,20 +14,36 @@ namespace Alura.Loja.Testes.ConsoleApp
     {
         static void Main(string[] args)
         {
+           
 
             Produto prod = new Produto();
             Pedido pedido = new Pedido();
+
+            int quantidade = 2;
 
             prod.Nome = "abobora";
             prod.Categoria = "Vegetal";
             prod.PrecoUnitario = 7.99;
             prod.Unidade = "Kilos";
 
-            pedido.Produto = prod;
+            Promocao promo = new Promocao();
 
-            using (var entity = new ProdutoDAOEntity())
+            PromocaoProduto pp = new PromocaoProduto();
+            pp.Produto = prod;
+
+            promo.Descricao = "Promo teste";
+            promo.DataInicio = DateTime.Now;
+            promo.DataFim = DateTime.Now.AddDays(15);
+            promo.Produtos.Add(pp);
+
+            pedido.Produto = prod;
+            pedido.Quantidade = quantidade;
+            pedido.Valor = pedido.Produto.PrecoUnitario * pedido.Quantidade; 
+
+            using (var entity = new LojaContext())
             {
-                entity.Adicionar(prod);
+                entity.Pedidos.Add(pedido);
+                entity.SaveChanges();
             }
 
             Console.ReadLine();

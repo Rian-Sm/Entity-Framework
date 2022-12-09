@@ -1,4 +1,5 @@
 ﻿using Alura.Loja.Testes.ConsoleApp.Context;
+using Alura.Loja.Testes.ConsoleApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace Alura.Loja.Testes.ConsoleApp.DAO
 {
     class ProdutoDAOEntity : IDisposable, IProdutoDAO 
     {
-        private LojaContext context;
+        private LojaContext context = new LojaContext();
 
         public ProdutoDAOEntity() {
             context = new LojaContext();
@@ -23,7 +24,6 @@ namespace Alura.Loja.Testes.ConsoleApp.DAO
         {
             context.Produtos.Add(p);
             context.SaveChanges();
-
         }
 
         public void Atualizar(Produto p)
