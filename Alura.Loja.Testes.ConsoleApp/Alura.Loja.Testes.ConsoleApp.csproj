@@ -61,7 +61,17 @@
     <Compile Include="Migrations\20221208200824_order.designer.cs">
       <DependentUpon>20221208200824_order.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20221209190500_promotion.cs" />
+    <Compile Include="Migrations\20221209190500_promotion.Designer.cs">
+      <DependentUpon>20221209190500_promotion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20221212020512_cliente.cs" />
+    <Compile Include="Migrations\20221212020512_cliente.designer.cs">
+      <DependentUpon>20221212020512_cliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\LojaContextModelSnapshot.cs" />
+    <Compile Include="Models\Cliente.cs" />
+    <Compile Include="Models\Endereco.cs" />
     <Compile Include="Models\Pedido.cs" />
     <Compile Include="Models\Produto.cs" />
     <Compile Include="Models\Promocao.cs" />
