@@ -11,5 +11,7 @@ namespace Alura.Loja.Testes.ConsoleApp.Models
         public string Unidade { get; internal set; }
         public List<PromocaoProduto> Promocoes { get; set; }
 
+        public List<Pedido> Pedidos { get; set; }
+
     }
 }
